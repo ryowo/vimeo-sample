@@ -1,5 +1,7 @@
-## for OS
+## for macOS
 ._*
 
 ## for composer php
 /vendor
+
+/config/config.php

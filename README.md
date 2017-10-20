@@ -11,7 +11,7 @@ https://github.com/vimeo/vimeo.php
 https://github.com/ryowo/vimeo-sample
 
 ## 初期のライブラリインストール by composer
-$ composer require vimeo/vimeo-api
+`$ composer require vimeo/vimeo-api`
 
 ## vimeo
 https://vimeo.com/
