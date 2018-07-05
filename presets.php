@@ -1,10 +1,8 @@
-
 <?php
-$results = require(__DIR__ . '/commands/list.php');
+$results = require(__DIR__ . '/commands/presets.php');
 ?>
 
 <?php include(__DIR__ . '/elements/head.php'); ?>
-
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
           <h1>Dashboard</h1>
@@ -17,40 +15,30 @@ $results = require(__DIR__ . '/commands/list.php');
             </button>
           </div>
 
-          <h2>Video list</h2>
+          <h2>Preset list</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>uri</th>
                   <th>Name</th>
-                  <th>Privacy</th>
-                  <th>Created</th>
-                  <th>Modified</th>
-                  <th>Status</th>
-                  <th>Presets</th>
                 </tr>
               </thead>
               <tbody>
 <?php
-$videos = $results['body']['data'];
-foreach ($videos as $video) { ?>
+$presets = $results['body']['data'];
+foreach ($presets as $preset) { ?>
 
                 <tr>
-                  <td><?php echo h($video['uri']); ?></td>
-                  <td><a href="<?php echo h($video['link']); ?>" target="_blank"><?php echo h($video['name']); ?></a></td>
-                  <td><?php if (!empty($video['privacy']['view'])) { echo h($video['privacy']['view']); }?></td>
-                  
-                  <td><?php echo h($video['created_time']); ?></td>
-                  <td><?php echo h($video['modified_time']); ?></td>
-                  <td><?php echo h($video['embed_presets']['name']); ?> (<?php echo h($video['embed_presets']['uri']); ?>)</td>
-                  <td><?php echo h($video['status']); ?></td>
+                  <td><?php echo h($preset['uri']); ?></td>
+                  <td><?php echo h($preset['name']); ?></td>
                 </tr>
 
 <?php } // end foreach ?>
               </tbody>
             </table>
           </div>
+
         </main>
 
 <?php include(__DIR__ . '/elements/foot.php'); ?>
